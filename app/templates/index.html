@@ -7,26 +7,17 @@
     <title>Home</title>
 </head>
 <body>
-    <main class="max-w-3xl mx-auto mt-8">
+    <main class="flex flex-col items-center max-w-4xl mx-auto mt-8">
+        <h1 class="font-bold text-2xl mb-4">Campi</h1>
         <ul class="flex flex-col gap-2">
-            {% for i, nome, apto in nomes %}
-                {% if "Apto" in apto|string %}
-                    <li class="flex text-green-500 justify-between border-b border-neutral-500">
-                        <p class="flex gap-4">
-                            <span>{{ i+1 }}</span>
-                            <span>{{ nome }}</span>
-                        </p>
-                        <p class="text-end">{{ apto }}</p>
-                    </li>
-                {% else %}
-                    <li class="flex text-red-500 justify-between border-b border-neutral-500">
-                        <p class="flex gap-4">
-                            <span>{{ i+1 }}</span>
-                            <span>{{ nome }}</span>
-                        </p>
-                        <p class="text-end">{{ apto }}</p>
-                    </li>
-                {% endif %}
+            {% for campus in campi %}
+                <li class="flex">
+                    <a 
+                        class="hover:bg-green-700 hover:text-white text-center w-full px-3 py-1 border border-neutral-500 rounded" 
+                        href="classificados/{{ campus }}">
+                        {{ campus }}
+                    </a>
+                </li>    
             {% endfor %}
         </ul>
     </main>
